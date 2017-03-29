@@ -61,8 +61,6 @@ class Log
      */
     public static function __callStatic($name, $arguments)
     {
-        echo "name:{$name}\n";
-        var_dump($arguments);
         $level = strtoupper($name);
         if ((array_search($level, self::LEVEL_DESC)) !== false) {
             self::writeLog($level, $arguments[0]);

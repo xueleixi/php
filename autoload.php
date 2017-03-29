@@ -7,6 +7,14 @@
  */
 
 function autoload($class){
+
+    $dirFile=str_replace("\\","/",$class).".php";
+    if (file_exists($dirFile)){
+        require $dirFile;
+        return;
+    }
+
+
     $scan_dir=['class','models'];
     foreach ($scan_dir as $dir){
         $filename = "$dir/{$class}.php";
